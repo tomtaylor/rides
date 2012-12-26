@@ -28,7 +28,6 @@ traces. If you've got a good route you'd like to add, please <a href="mailto:tom
 interested in adding every GPS trace you've got: just good day rides you'd
 recommend to a friend.</p>
 
-
 <h2>The Rides</h2>
 
 <% route_resources.each do |resource| %>
@@ -37,3 +36,8 @@ recommend to a friend.</p>
   &bullet; <%= resource.metadata[:page]['distance'] %> miles </p>
   <p><%= resource.metadata[:page]['description'] %></p>
 <% end %>
+
+<h2>The Site</h2>
+
+<p>The full source code is <a href="https://github.com/tomtaylor/rides">available on Github</a>.</p>
+
