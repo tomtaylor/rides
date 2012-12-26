@@ -1,0 +1,29 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "jquery-1.8.3.js", "underscore-1.4.3.js", "leaflet-0.4.5.js", "map.js", "route.js" %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+        var mapManager = new window.MapManager("map");
+        mapManager.bootstrap();
+
+        var route = new window.Route("<%= current_page.data.map_json_file %>");
+        mapManager.addRoute(route);
+    });
+  </script>
+<% end %>
+
+<% content_for :title do %>
+  <%= current_page.data.title %>
+<% end %>
+
+<% wrap_layout :layout do %>
+  <div class="container">
+    <nav><a href="/">&larr; Back to the list of rides</a></nav>
+    <h1><%= current_page.data.title %></h1>
+    <p class="metadata"><%= current_page.data.distance %> miles &bullet; <a href="<%= current_page.data.map_gpx_file %>">Download GPX</a> &bullet; <a href="<%= current_page.data.map_kml_file %>">Download KML</a></p>
+    <p><%= current_page.data.description %></p>
+  </div>
+  <div class="map" id="map"></div>
+  <div class="container last">
+    <%= yield %>
+  </div>
+<% end %>

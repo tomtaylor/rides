@@ -1,0 +1,101 @@
+@import "compass";
+
+@include global-reset;
+$brightblue: rgb(11,189,255);
+$brightpink: #ff1493;
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  background-color: white;
+}
+
+$container_width: 500px;
+$border_color: #999;
+
+div.container {
+  max-width: $container_width;
+  padding: 20px;
+  margin: 0 auto;
+  background-color: #eaedef;
+
+  @media screen and (min-width: 542px) {
+    border-left: 1px solid $border_color;
+    border-right: 1px solid $border_color;
+  }
+
+  &.last {
+    @media screen and (min-width: 542px) {
+      border-bottom: 1px solid $border_color;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+div.map {
+  width: 100%;
+  height: 400px;
+  border-top: 1px solid $border_color;
+  border-bottom: 1px solid $border_color;
+  @include box-shadow(lighten($border_color, 20%) 0 0 20px);
+
+  @media screen and (max-height: 480px) {
+    height: 200px;
+  }
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+a {
+  color: $brightpink;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: 16px;
+  line-height: 1.4;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+p.metadata {
+  font-size: 12px;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+p + h3 {
+  margin-top: 16px;
+}
+
+nav {
+  font-size: 12px;
+  margin-bottom: 12px;
+}

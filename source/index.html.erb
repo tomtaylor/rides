@@ -1,0 +1,39 @@
+---
+layout: "static"
+---
+
+<% content_for :head do %>
+  <title>Good Bike Rides From London</title>
+<% end %>
+
+<h1>Good Bike Rides From London</h1>
+
+<p>These are (mostly) good, day-long bike rides from London. They're rides for
+friends, at a comfortable pace. They're usually to a destination (often the sea)
+with easy access to a train back into London.</p>
+
+<p>They're all available as GPX and KML files, for easy download onto most GPS devices
+and apps.</p>
+
+<p>They're optimised for having a nice time on quiet roads. If they head
+towards hills it's because of the view and the route rather than the exercise.
+Where possible, I've included pubs for lunch, or notable landmarks.</p>
+
+<p>They've probably all got room for improvement &mdash; better pubs or tweaks
+to avoid the odd busy road &mdash; but they're pretty good. I'd ride them all
+again.</p>
+
+<p>I'm adding rides as I get round digging out and cleaning up the GPS
+traces. If you've got a good route you'd like to add, please <a href="mailto:tom@tomtaylor.co.uk">get in touch</a>. I'm not
+interested in adding every GPS trace you've got: just good day rides you'd
+recommend to a friend.</p>
+
+
+<h2>The Rides</h2>
+
+<% route_resources.each do |resource| %>
+  <h3><a href="<%= resource.destination_path %>"><%= resource.metadata[:page]['title'] %></a></h3>
+  <p class="metadata">Added <%= resource.metadata[:page]['added'].strftime("%d/%m/%Y") %>
+  &bullet; <%= resource.metadata[:page]['distance'] %> miles </p>
+  <p><%= resource.metadata[:page]['description'] %></p>
+<% end %>
