@@ -14,3 +14,7 @@ namespace :geo do
     end
   end
 end
+
+task :sync do
+  `middleman build && rsync --delete -ave ssh build/ zino:/srv/www/rides.tomtaylor.co.uk/`
+end
