@@ -17,5 +17,5 @@ end
 
 desc "Build and deploy"
 task :sync do
-  `middleman build -c && rsync --delete -ave ssh build/ zino:/srv/www/rides.tomtaylor.co.uk/`
+  `middleman build --clean && rsync --delete -ave ssh build/ zino:/srv/www/rides.tomtaylor.co.uk/`
 end
